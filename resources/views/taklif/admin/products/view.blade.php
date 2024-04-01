@@ -32,5 +32,6 @@
         @endforeach
     </tbody>
   </table>
+  <a href="/admin/products/create"><button class="btn btn-primary btn-block">Create Product</button></a>
 </div>
 @endsection

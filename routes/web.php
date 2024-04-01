@@ -55,6 +55,21 @@ Route::prefix('/admin')->group(function () {
         Route::get('/create', function () {
             return view('taklif.admin.products.create');
         });
+        Route::post('/create', function () {
+            DB::table('products')->insert([
+               'name' => $reqest->name,
+               'price' => request('price'),
+               'description' => 'description',
+               'off' => 'off',
+               'image'=>'image',
+               'category_id' =>'cat_id', 
+            ]);
+            $prods = DB::table('products')->get();
+            return view('taklif.admin.products.view',compact('prods',));
+        });
+        Route::get('/create', function () {
+            return view('taklif.admin.products.create');
+        });
         Route::get('/delete', function () {
             return view('taklif.admin.products.delete');
         });
