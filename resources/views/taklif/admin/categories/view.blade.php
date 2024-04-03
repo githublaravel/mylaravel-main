@@ -5,9 +5,7 @@
         margin:auto;
         text-align:center;
     };
-    container{
 
-    }
 </style>
 @endsection
 @section('body')
