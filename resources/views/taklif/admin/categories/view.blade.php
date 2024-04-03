@@ -32,5 +32,6 @@
         @endforeach
     </tbody>
   </table>
+  <a href="/admin/categories/create"><button class="btn btn-primary btn-block">Create Category</button></a>
 </div>
 @endsection

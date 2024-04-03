@@ -53,19 +53,20 @@ Route::prefix('/admin')->group(function () {
             return view('taklif.admin.products.update', compact('prod', 'category'));
         });
         Route::get('/create', function () {
-            return view('taklif.admin.products.create');
+            $cats = DB::table('categories')->get();
+            return view('taklif.admin.products.create', compact('cats'));
         });
         Route::post('/create', function () {
             DB::table('products')->insert([
-               'name' => $reqest->name,
-               'price' => request('price'),
-               'description' => 'description',
-               'off' => 'off',
-               'image'=>'image',
-               'category_id' =>'cat_id', 
+                'name' => request('name'),
+                'price' => request('price'),
+                'description' => 'description',
+                'off' => request('off'),
+                'image' => 'image',
+                'category_id' => request('cat_id'),
             ]);
             $prods = DB::table('products')->get();
-            return view('taklif.admin.products.view',compact('prods',));
+            return view('taklif.admin.products.view', compact('prods',));
         });
         Route::get('/create', function () {
             return view('taklif.admin.products.create');
@@ -84,7 +85,14 @@ Route::prefix('/admin')->group(function () {
             return view('taklif.admin.categories.update', compact('cat'));
         });
         Route::get('/create', function () {
-            return view('taklif.admin.categories.create', compact('cats'));
+            return view('taklif.admin.categories.create');
+        });
+        Route::post('/create', function () {
+            DB::table('categories')->insert([
+                'name' => request('name')
+            ]);
+            $cats=DB::table('categories')->get();
+            return view('taklif.admin.categories.view', compact('cats'));
         });
         Route::get('/delete', function () {
             return view('taklif.admin.categories.delete', compact('cats'));
@@ -132,5 +140,3 @@ Route::prefix('/post')->group(function () {
         return view('post.update');
     });
 });
-
-
