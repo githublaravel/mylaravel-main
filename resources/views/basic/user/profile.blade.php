@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layouts.user.master')
 @section('title')
     mySite
 @endsection

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @include('layout.head')
+    @include('layouts.user.head')
     <title>@yield('title')</title>
     @yield('style')
 </head>
 <body dir="rtl">
-    @include('layout.nav')
+    @include('layouts.user.nav')
 
     @yield('body')
 
-    @include('layout.footer')
+    @include('layouts.user.footer')
 
     @yield('end')
 </body>
