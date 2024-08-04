@@ -4,144 +4,103 @@
 @endsection
 @section('style')
     <style>
-        body {
-            background-image: url("{{asset('back-image/back-home.jpg')}}");
-            text-align: right;
+        @media only screen and (max-width: 768px) {
+
+            .carousel-inner>.carousel-item>img {
+                width: 100%;
+                height: 1px;
+            }
+
+            .n-control {
+                display: none;
+            }
+
+        }
+
+        .carousel-inner>.carousel-item>img {
+            width: 100%;
+            height: 30rem
+        }
+
+        .n-control>.carousel-item>img {
+            width: 100%;
+            height: 15rem
         }
     </style>
 @endsection
 @section('body')
-    <div class="container" style="margin-top:30px">
-        <p style="text-align: right" class="h2 text-white titr">جدید ترین مقالات :</p>
-        <hr>
+    <div class="container-flud p-1">
         <div class="row">
-            <div class="col" style="margin: auto;">
-                <div class="card" style="width: 20rem;margin: auto">
-                    <div class="card-body matn">
-                        <img class="card-img-top" src="{{asset('icon/blog.jpg')}}" alt="Card image cap">
-                        <h5 class="card-title">
-                            <h4>موضوع</h4>
-                        </h5>
-                        <p class="card-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
-                            طراحان
-                            گرافیک است. چاپگرها و متون بلکه روزنامه و</p>
+            <div class="col-md-8 p-1">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{{ asset('image/slider/s1.jpg') }}" class="d-block img-fluid" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('image/slider/s1.jpg') }}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('image/slider/s1.jpg') }}" class="d-block w-100" alt="...">
+                        </div>
                     </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
-            <div class="col" style="margin: auto">
-                <div class="card" style="width: 20rem;margin: auto">
-                    <div class="card-body matn">
-                        <img class="card-img-top" src="{{asset('icon/blog.jpg')}}" alt="Card image cap">
-                        <h5 class="card-title">
-                            <h4>موضوع</h4>
-                        </h5>
-                        <p class="card-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
-                            طراحان
-                            گرافیک است. چاپگرها و متون بلکه روزنامه و</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col" style="margin: auto">
-                <div class="card" style="width: 20rem;margin: auto">
-                    <div class="card-body matn">
-                        <img class="card-img-top" src="{{asset('icon/blog.jpg')}}" alt="Card image cap">
-                        <h5 class="card-title">
-                            <h4>موضوع</h4>
-                        </h5>
-                        <p class="card-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
-                            طراحان
-                            گرافیک است. چاپگرها و متون بلکه روزنامه و</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <br>
-        <p style="text-align: right;display: inline;" class="h2 text-white titr">پر بازدیدترین بلاگ ها :</p>
-        <a href="/post/create">
-            <button style="display: inline" class="btn btn-primary">برای ساخت سوال خود اینجا کلیک کنید</button>
-        </a>
-        <hr style="width: 64%;margin-left:100%">
-        <div class="row">
-            <div class="col-4">
-                <div class="col" style="margin: auto">
-                    <div class="card" style="width: 20rem;margin: auto">
-                        <div class="card-body matn">
-                            <img class="card-img-top" src="{{asset('icon/blog.jpg')}}" alt="Card image cap">
-                            <h5 class="card-title">
-                                <h4>موضوع</h4>
-                            </h5>
-                            <p class="card-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                                از
-                                طراحان
-                                گرافیک است. چاپگرها و متون بلکه روزنامه و</p>
+            <div class="col-md-4">
+                <div class="row p-1">
+                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner n-control ">
+                            <div class="carousel-item n-control active">
+                                <img src="{{ asset('image/slider/s1.jpg') }}" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('image/slider/s1.jpg') }}" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('image/slider/s1.jpg') }}" class="d-block w-100" alt="...">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="col" style="margin: auto">
-                    <div class="card" style="width: 20rem;margin: auto">
-                        <div class="card-body matn">
-                            <img class="card-img-top" src="{{asset('icon/blog.jpg')}}" alt="Card image cap">
-                            <h5 class="card-title">
-                                <h4>موضوع</h4>
-                            </h5>
-                            <p class="card-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                                از
-                                طراحان
-                                گرافیک است. چاپگرها و متون بلکه روزنامه و</p>
+                <div class="row p-1">
+                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner n-control">
+                            <div class="carousel-item active">
+                                <img src="{{ asset('image/slider/s1.jpg') }}" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('image/slider/s1.jpg') }}" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('image/slider/s1.jpg') }}" class="d-block w-100" alt="...">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="card" style="width: 20rem;margin: auto;height: 180px">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">صفحه های اجتماعی</li>
-                        <li class="list-group-item"><img style="max-width: 210px;" src="{{asset('icon/sp.jpg')}}" alt="">
-                        </li>
 
-                    </ul>
-                </div>
-                <div class="col-4" style="margin-top: 12px">
-                    <div class="card" style="width: 20rem;margin: auto;margin-top: 35.6px;height: 157px">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">آمار ها :</li>
-                            <li class="list-group-item">تعداد بلاگ ها :</li>
-                            <li class="list-group-item">تعداد کاربران :</li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </div>
-        <br>
-        <p style="text-align: right" class="h2 text-white titr">جدید ترین ویدیو ها :</p>
-        <hr>
 
-        <div class="row">
-            <div class="col-4" style="text-align:center">
-                <video width="320" height="240" controls style="border: 1px black solid;border-radius: 5px">
-                    <source src="icon/blog.jpg" type="video/jpg">
-                    <source src="" type="video/ogg">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <div class="col-4" style="text-align:center">
-                <video width="320" height="240" controls style="border: 1px black solid;border-radius: 5px">
-                    <source src="icon/blog.jpg" type="video/jpg">
-                    <source src="" type="video/ogg">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <div class="col-4" style="text-align:center">
-                <video width="320" height="240" controls style="border: 1px black solid;border-radius: 5px">
-                    <source src="icon/blog.jpg" type="video/jpg">
-                    <source src="" type="video/ogg">
-                    Your browser does not support the video tag.
-                </video>
+        <div class="container">
+            <div class="card" style="width: 18rem">
+                <img src="{{ asset('image/blog.jpg') }}" alt="" class="card-image-top">
+                <card class="body">
+                    <card class="title">
+                        <h1>title</h1>
+                    </card>
+                </card>
             </div>
         </div>
+
     </div>
-    <br>
 @endsection
