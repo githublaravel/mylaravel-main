@@ -1,19 +1,20 @@
-@media only screen and (max-width: 768px) {
-
-    .carousel-inner>.carousel-item>img {
-        width: 100%;
-        height: 1px;
-    }
-
-    .n-control {
-        display: none;
-    }
-
+.card-article {
+    width: 18rem;
+    margin: auto;
 }
+
 
 .carousel-inner>.carousel-item>img {
     width: 100%;
     height: 20rem
+}
+
+.card-article>.card-body>.card-title {
+    text-align: right;
+}
+
+.card-article>.card-body>.card-text {
+    text-align: right;
 }
 
 .n-control>.carousel-item>img {
@@ -21,9 +22,10 @@
     height: 10rem
 }
 
+
 .card:hover {
-    opacity: 0.5;
-    box-shadow: 10px 10px 10px 10px rgb(185, 162, 249);
+    opacity: 0.8;
+    box-shadow: 10px 10px 10px 10px rgb(207, 202, 222);
 }
 
 .card-text {
@@ -31,4 +33,37 @@
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.hr-slide{
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .carousel-inner>.carousel-item>img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .n-control {
+        display: none;
+    }
+
+    .card-article {
+        width: 10rem;
+        margin: auto
+    }
+
+    .splide-3,.splide-2>.splide__track>.splide__list>.splide__slide>.card-body {
+        width: 100%;
+    }
+
+    .col-cat{
+        margin-right: 10px;
+    }
+
+    .hr-slide{
+        display: block;
+    }
 }
