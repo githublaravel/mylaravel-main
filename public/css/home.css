@@ -24,8 +24,8 @@
 
 
 .card:hover {
-    opacity: 0.8;
-    box-shadow: 10px 10px 10px 10px rgb(207, 202, 222);
+    transform: scale(1.1);
+    transition: .4s;
 }
 
 .card-text {
@@ -35,7 +35,54 @@
     text-overflow: ellipsis;
 }
 
-.hr-slide{
+.title {
+    border-bottom: 1px solid saddlebrown;
+    border-left: 1px solid saddlebrown;
+    border-radius: 4px;
+    text-shadow: 2px 2px rgb(180, 116, 116);
+    overflow: hidden;
+    height: 40px;
+    width: auto;
+}
+
+.category-select {
+    border: none;
+    background-color: rgb(red, green, rgba(22, 22, 193, 0.946));
+}
+
+section>.splide__track>ul>li {
+    opacity: 0.0;
+    z-index: 0;
+}
+
+section>.splide__track>ul>.is-visible {
+    opacity: 0.101;
+    transition: 0.5s;
+
+
+}
+
+
+section>.splide__track>ul>.is-active {
+    opacity: 1;
+    transition: 0.5s;
+
+}
+
+
+
+section>.splide__track>ul>.is-prev {
+    opacity: 0.8;
+    transition: 1s;
+}
+
+section>.splide__track>ul>.is-next {
+    opacity: 0.8;
+    transition: 1s;
+    z-index:-1;
+}
+
+.hr-slide {
     display: none;
 }
 
@@ -52,18 +99,24 @@
 
     .card-article {
         width: 10rem;
-        margin: auto
+        margin: auto;
     }
 
-    .splide-3,.splide-2>.splide__track>.splide__list>.splide__slide>.card-body {
+    .splide-3,
+    .splide-2>.splide__track>.splide__list>.splide__slide>.card-body {
         width: 100%;
     }
 
-    .col-cat{
+    .col-cat {
         margin-right: 10px;
     }
 
-    .hr-slide{
+    .hr-slide {
         display: block;
     }
+
+    .col-cat {
+        display: none;
+    }
+
 }
