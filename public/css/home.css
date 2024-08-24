@@ -1,8 +1,24 @@
+body {
+    background-color: #dbd9d9;
+    color: #000000;
+}
+
+/* استایل‌های حالت شب */
+body.dark-mode {
+    background-color: #2b2b2b;
+    color: #ffffff;
+
+}
+
 .card-article {
     width: 18rem;
     margin: auto;
+
 }
 
+.card-article.dark-mode-card {
+    background-color: #4f4e4e; /* یا هر رنگ دلخواه */
+}
 
 .carousel-inner>.carousel-item>img {
     width: 100%;
@@ -23,16 +39,19 @@
 }
 
 
-.card:hover {
+.splide__slide:hover {
     transform: scale(1.1);
     transition: .4s;
+    overflow-block: clip;
 }
 
-.card-text {
+.card-text,
+.card-title {
     white-space: nowrap;
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: #000000;
 }
 
 .title {
@@ -49,41 +68,157 @@
     border: none;
     background-color: rgb(red, green, rgba(22, 22, 193, 0.946));
 }
-
-section>.splide__track>ul>li {
+.category-select.car-select-dark{
+    color: white;
+}
+section>.splide__track>ul>:not(.is-active, .is-visible, .is-prev, .is-next) {
     opacity: 0.0;
-    z-index: 0;
+
 }
 
 section>.splide__track>ul>.is-visible {
-    opacity: 0.101;
+    opacity: 0.1;
     transition: 0.5s;
-
+    z-index: -2;
 
 }
+
+.card-cam {
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(51, 162, 192);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 25px;
+    gap: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
+    border: 1px solid rgb(117, 112, 112);
+    border-radius: 4px;
+}
+
+/* for all social containers*/
+.socialContainer {
+    width: 52px;
+    height: 52px;
+    background-color: rgb(44, 44, 44);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition-duration: .3s;
+}
+
+/* instagram*/
+.containerOne:hover {
+    background-color: #d62976;
+    transition-duration: .3s;
+}
+
+/* twitter*/
+.containerTwo:hover {
+    background-color: #00acee;
+    transition-duration: .3s;
+}
+
+/* linkdin*/
+.containerThree:hover {
+    background-color: #0072b1;
+    transition-duration: .3s;
+}
+
+/* Whatsapp*/
+.containerFour:hover {
+    background-color: #128C7E;
+    transition-duration: .3s;
+}
+
+.socialContainer:active {
+    transform: scale(0.9);
+    transition-duration: .3s;
+}
+
+.socialSvg {
+    width: 17px;
+}
+
+.socialSvg path {
+    fill: rgb(255, 255, 255);
+}
+
+.socialContainer:hover .socialSvg {
+    animation: slide-in-top 0.3s both;
+}
+
+@keyframes slide-in-top {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 
 
 section>.splide__track>ul>.is-active {
     opacity: 1;
     transition: 0.5s;
-
+    z-index: 1;
 }
 
 
 
-section>.splide__track>ul>.is-prev {
+section>.splide__track>ul>:is(.is-prev, .is-next) {
     opacity: 0.8;
     transition: 1s;
+    z-index: -1;
 }
 
-section>.splide__track>ul>.is-next {
-    opacity: 0.8;
-    transition: 1s;
-    z-index:-1;
+
+.image-com {
+    max-width: 25rem;
+    margin-right: 13rem;
+    margin: auto;
 }
+
+
 
 .hr-slide {
     display: none;
+}
+
+.row-com {
+    border: 1px solid rgb(206, 110, 110);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.image-div {
+    background-color: rgb(86, 211, 211);
+    border-top-left-radius: 30%;
+    border-bottom-left-radius: 30%;
+}
+
+.img-fluid {
+    max-width: 80%;
+    height: auto;
+    margin: auto;
+}
+
+.social-icons a {
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: #ffc107;
+    /* رنگ زرد برای جلوه ی بهتر هنگام هاور */
 }
 
 @media only screen and (max-width: 768px) {
@@ -119,4 +254,32 @@ section>.splide__track>ul>.is-next {
         display: none;
     }
 
+    .image-div {
+        display: none;
+    }
+
+    .col-com {
+        display: none;
+    }
+
+    .row-com {
+        text-align: center;
+    }
+
+    .image-div {
+        display: none;
+    }
+
+    .card-cam {
+        top: 0%;
+        left: 0%;
+        transform: translate(4.4%, 0%);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #333333;
+        --text-color: #ffffff;
+    }
 }

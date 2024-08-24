@@ -7,7 +7,7 @@
     @yield('style')
 </head>
 
-<body dir="rtl">
+<body dir="rtl" class="my-body">
     @include('layouts.user.nav')
 
     @yield('body')

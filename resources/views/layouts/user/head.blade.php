@@ -23,7 +23,5 @@
 
 <!-- or link to the CDN -->
 <link rel="stylesheet" href="url-to-cdn/splide.min.css">
-
-<link rel="stylesheet" href="{{ asset('/css/font.css') }}">
-
 <link rel="stylesheet" href="{{ asset('css/nav-basic.css') }}">
+<link rel="stylesheet" href="{{ asset('css/footer.css') }}">
