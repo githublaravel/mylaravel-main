@@ -1,41 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggleButton = document.getElementById('theme-toggle');
     const body = document.body;
+    const cats = document.querySelectorAll(".category-select");
+    const cards = document.querySelectorAll(".card-ques, .card-article");
+    const containers = document.querySelectorAll(".ques-slider, .top-slider-con"); // تصحیح انتخابگر
+
     const currentTheme = localStorage.getItem('theme') || 'light';
-    const cards = document.querySelectorAll(".card-article");
-    // بررسی انتخاب عنصر cards
-    console.log('Elements cards found:', cards);
-    if (cards.length > 0) {
 
-        if (currentTheme === 'dark') {
-            body.classList.add('dark-mode');
-            themeToggleButton.classList.remove('button-light-mode');
-            themeToggleButton.classList.add('button-dark-mode');
-            cards.forEach(card => card.classList.add("dark-mode-card"));
-        } else {
-            body.classList.remove('dark-mode');
-            themeToggleButton.classList.remove('button-dark-mode');
-            themeToggleButton.classList.add('button-light-mode');
-            cards.forEach(card => card.classList.remove("dark-mode-card"));
-        }
+    const applyTheme = (isDark) => {
+        body.classList.toggle('dark-mode', isDark);
+        themeToggleButton.classList.toggle('button-dark-mode', isDark);
+        themeToggleButton.classList.toggle('button-light-mode', !isDark);
 
-        // مدیریت کلیک دکمه تغییر تم
-        themeToggleButton.addEventListener('click', () => {
-            if (body.classList.contains('dark-mode')) {
-                body.classList.remove('dark-mode');
-                themeToggleButton.classList.remove('button-dark-mode');
-                themeToggleButton.classList.add('button-light-mode');
-                localStorage.setItem('theme', 'light');
-                cards.forEach(card => card.classList.remove("dark-mode-card"));
-            } else {
-                body.classList.add('dark-mode');
-                themeToggleButton.classList.remove('button-light-mode');
-                themeToggleButton.classList.add('button-dark-mode');
-                localStorage.setItem('theme', 'dark');
-                cards.forEach(card => card.classList.add("dark-mode-card"));
-            }
+        cards.forEach(card => {
+            card.classList.toggle("dark-mode-card", isDark);
+            card.classList.toggle("bg-light", !isDark);
         });
-    } else {
-        console.log('Elements cards not found');
-    }
+
+        cats.forEach(cat => cat.classList.toggle("dark-mode-cat", isDark));
+
+        // اضافه کردن یا حذف کلاس برای containers در حالت شب
+        containers.forEach(container => {
+            container.classList.toggle("dark-mode", isDark);
+        });
+    };
+
+    // تنظیم تم بر اساس مقدار ذخیره شده
+    applyTheme(currentTheme === 'dark');
+
+    // مدیریت کلیک دکمه تغییر تم
+    themeToggleButton.addEventListener('click', () => {
+        const isDarkMode = body.classList.contains('dark-mode');
+        applyTheme(!isDarkMode);
+        localStorage.setItem('theme', isDarkMode ? 'light' : 'dark');
+    });
 });
