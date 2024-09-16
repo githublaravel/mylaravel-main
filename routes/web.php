@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OtherController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\UserController;
@@ -49,6 +50,13 @@ Route::prefix('/question')->group(function () {
     Route::get('/delete', [QuestionController::class, 'destory']);
     Route::post('/chat', [ChatController::class, 'create']);
 });
+
+//Route For AUTH
+Route::prefix('/auth')->group(function(){
+    Route::get('/register',[AuthController::class,'show_register']);
+    Route::get('/login',[AuthController::class,'show_login']);
+});
+
 //End Question
 //End basic
 
